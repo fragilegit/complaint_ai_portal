@@ -1,0 +1,40 @@
+:root {
+    /* Primary band */
+    --bs-primary: #e4022b;
+
+    /* Button + hover states */
+    --bs-primary-rgb: 228, 2, 43;
+    --bs-btn-bg: #e4022b;
+    --bs-btn-border-color: #e4022b;
+    --bs-btn-hover-bg: #b80222;
+    --bs-btn-hover-border-color: #b80222;
+
+    /* Links */
+    --bs-link-color: #e4022b;
+    --bs-link-hover-color: #b80222;
+
+    /* Focus ring */
+    --bs-focus-ring-color: rgba(228, 2, 43, 0.25);
+}
+
+.bg-primary {
+    background-color: var(--bs-primary) !important;
+}
+
+.btn-primary {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+
+.btn-primary:hover {
+    background-color: #b80222;
+    border-color: #b80222;
+}
+
+.text-primary {
+    color: var(--bs-primary) !important;
+}
+
+a {
+    color: var(--bs-primary);
+}
