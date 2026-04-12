@@ -5,18 +5,20 @@
 	<div class="col-md-4">
 		<div class="card shadow-sm h-100">
 			<div class="card-body">
-				<h5>Complaints by Status</h5>{% for item in by_status %}<div>{{ item.status }}: {{ item.total }}</div>{%
-				endfor
-				%}
+				<h5>Complaints by Status</h5>
+				{% for item in by_status %}
+				<div>{{ item.status }}: {{ item.total }}</div>
+				{% endfor %}
 			</div>
 		</div>
 	</div>
 	<div class="col-md-4">
 		<div class="card shadow-sm h-100">
 			<div class="card-body">
-				<h5>Complaints by Category</h5>{% for item in by_category %}<div>{{ item.category }}: {{ item.total }}
-				</div>{%
-				endfor %}
+				<h5>Complaints by Category</h5>
+				{% for item in by_category %}
+				<div>{{ item.category }}: {{ item.total }}</div>
+				{% endfor %}
 			</div>
 		</div>
 	</div>
@@ -57,8 +59,9 @@
 				<div class="border rounded p-2 mb-2 d-flex justify-content-between">
 					<div>
 						<div class="fw-semibold">{{ complaint.reference }}</div>
-						<div class="small text-muted">{{ complaint.customer.username }} • {{
-							complaint.get_category_display }}</div>
+						<div class="small text-muted">
+							{{ complaint.customer.username }} • {{complaint.get_category_display }}
+						</div>
 					</div>
 					<a href="{% url 'complaint-detail' complaint.pk %}">View</a>
 				</div>
