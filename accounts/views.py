@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 
@@ -18,6 +18,10 @@ def login_view(request):
         messages.error(request, 'Invalid username or password.')
 
     return render(request, 'accounts/login.html')
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')
 
 @login_required
 def role_dashboard_redirect(request):
