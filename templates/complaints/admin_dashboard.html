@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Admin Dashboard</h2>
+<div class="row g-4 mb-4">
+  <div class="col-md-4">
+    <div class="card shadow-sm h-100"><div class="card-body"><h5>Complaints by Status</h5>{% for item in by_status %}<div>{{ item.status }}: {{ item.total }}</div>{% endfor %}</div></div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow-sm h-100"><div class="card-body"><h5>Complaints by Category</h5>{% for item in by_category %}<div>{{ item.category }}: {{ item.total }}</div>{% endfor %}</div></div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow-sm h-100"><div class="card-body"><h5>Average Resolution Time</h5><div>{% if avg_resolution %}{{ avg_resolution }}{% else %}No resolved complaints yet{% endif %}</div></div></div>
+  </div>
+</div>
+<div class="row g-4">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5>SLA Breaches (>{{ sla_days }} days)</h5>
+        {% for complaint in breached %}
+          <div class="border rounded p-2 mb-2 d-flex justify-content-between">
+            <div>
+              <div class="fw-semibold">{{ complaint.reference }}</div>
+              <div class="small text-muted">{{ complaint.customer.username }} • {{ complaint.get_status_display }}</div>
+            </div>
+            <a href="{% url 'complaint-detail' complaint.pk %}">View</a>
+          </div>
+        {% empty %}
+          <p class="text-muted mb-0">No breaches.</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5>Recent Complaints</h5>
+        {% for complaint in recent %}
+          <div class="border rounded p-2 mb-2 d-flex justify-content-between">
+            <div>
+              <div class="fw-semibold">{{ complaint.reference }}</div>
+              <div class="small text-muted">{{ complaint.customer.username }} • {{ complaint.get_category_display }}</div>
+            </div>
+            <a href="{% url 'complaint-detail' complaint.pk %}">View</a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
