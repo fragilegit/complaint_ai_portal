@@ -43,6 +43,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'core.context_processors.app_settings',
             ],
         },
     },
@@ -83,3 +84,5 @@ SLA_BREACH_DAYS = int(os.getenv('SLA_BREACH_DAYS', '5'))
 
 DEFAULT_CURRENCY = os.getenv("DEFAULT_CURRENCY", "TTD")
 CURRENCY_SYMBOL = os.getenv("CURRENCY_SYMBOL", "TT$")
+
+APP_NAME = os.getenv("APP_NAME", "Telecom Customer Portal")
