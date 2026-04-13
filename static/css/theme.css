@@ -15,6 +15,14 @@
 
     /* Focus ring */
     --bs-focus-ring-color: rgba(228, 2, 43, 0.25);
+
+    --app-primary: #e4022b;
+    --app-primary-dark: #b80022;
+    --app-bg: #f8f9fc;
+    --app-text: #1f2937;
+    --app-muted: #6b7280;
+    --app-border: #e5e7eb;
+    --app-card-bg: #ffffff;
 }
 
 .bg-primary {
@@ -37,4 +45,102 @@
 
 a {
     color: var(--bs-primary);
+}
+
+.error-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--app-bg);
+    padding: 24px;
+}
+
+.error-card {
+    width: 100%;
+    max-width: 640px;
+    background: var(--app-card-bg);
+    border: 1px solid var(--app-border);
+    border-radius: 18px;
+    padding: 40px 32px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.error-badge {
+    display: inline-block;
+    background: rgba(228, 2, 43, 0.08);
+    color: var(--app-primary);
+    border: 1px solid rgba(228, 2, 43, 0.15);
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.error-code {
+    font-size: 72px;
+    line-height: 1;
+    font-weight: 800;
+    color: var(--app-primary);
+    margin-bottom: 12px;
+}
+
+.error-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--app-text);
+    margin-bottom: 12px;
+}
+
+.error-message {
+    font-size: 16px;
+    color: var(--app-muted);
+    margin-bottom: 28px;
+}
+
+.error-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.error-btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.error-btn-primary {
+    background: var(--app-primary);
+    color: #fff;
+    border: 1px solid var(--app-primary);
+}
+
+.error-btn-primary:hover {
+    background: var(--app-primary-dark);
+    border-color: var(--app-primary-dark);
+    color: #fff;
+}
+
+.error-btn-secondary {
+    background: #fff;
+    color: var(--app-text);
+    border: 1px solid var(--app-border);
+}
+
+.error-btn-secondary:hover {
+    background: #f3f4f6;
+    color: var(--app-text);
+}
+
+.error-help {
+    margin-top: 24px;
+    font-size: 14px;
+    color: var(--app-muted);
 }
