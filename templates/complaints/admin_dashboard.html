@@ -40,8 +40,9 @@
 				<div class="border rounded p-2 mb-2 d-flex justify-content-between">
 					<div>
 						<div class="fw-semibold">{{ complaint.reference }}</div>
-						<div class="small text-muted">{{ complaint.customer.username }} • {{
-							complaint.get_status_display }}</div>
+						<div class="small text-muted">
+							{{ complaint.customer.username }} • {{complaint.get_status_display }}
+						</div>
 					</div>
 					<a href="{% url 'complaint-detail' complaint.pk %}">View</a>
 				</div>

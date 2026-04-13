@@ -4,10 +4,13 @@ from groq import Groq
 from accounts.models import CustomerProfile
 from complaints.models import Complaint, NetworkFault
 from .models import ChatMessage
+from django.conf import settings
 
 MODEL_NAME = 'llama-3.1-8b-instant'
 SYSTEM_PROMPT = (
     'You are a customer support assistant. Answer only using the supplied customer context. '
+    f"All money values are in {settings.DEFAULT_CURRENCY}."
+    f"Use {settings.CURRENCY_SYMBOL} when presenting balances."
     'Do not guess or invent facts. If the context does not contain the answer, say that clearly. '
     'Keep responses concise and helpful.'
 )

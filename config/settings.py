@@ -80,3 +80,6 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGOUT_REDIRECT_URL = 'login'
 SLA_BREACH_DAYS = int(os.getenv('SLA_BREACH_DAYS', '5'))
+
+DEFAULT_CURRENCY = os.getenv("DEFAULT_CURRENCY", "TTD")
+CURRENCY_SYMBOL = os.getenv("CURRENCY_SYMBOL", "TT$")
