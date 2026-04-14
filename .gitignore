@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 postgres_data/
 staticfiles/
+prompt-history.md

@@ -59,10 +59,12 @@ def complaint_update(request, pk):
         return redirect('agent-work-queue')
 
     if request.method == 'POST':
+        original_complaint = Complaint.objects.get(pk=pk)
+        current_status = original_complaint.status
         form = ComplaintUpdateForm(request.POST, instance=complaint, user=request.user)
         if form.is_valid():
             new_status = form.cleaned_data['status']
-            if not complaint.can_transition(request.user, new_status):
+            if not complaint.can_transition(request.user, current_status, new_status):
                 messages.error(request, 'Invalid workflow transition for your role.')
                 return redirect('complaint-detail', pk=pk)
             updated = form.save(commit=False)

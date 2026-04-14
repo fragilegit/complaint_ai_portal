@@ -41,14 +41,18 @@ class Complaint(models.Model):
             return round((self.resolved_at - self.created_at).total_seconds() / 3600, 2)
         return None
 
-    def can_transition(self, user, new_status):
+    def can_transition(self, user, current_status, new_status):
         ordered = [self.Status.OPEN, self.Status.IN_PROGRESS, self.Status.ESCALATED, self.Status.RESOLVED, self.Status.CLOSED]
         if getattr(user, 'is_admin_user', False):
             return True
         if not getattr(user, 'is_agent', False):
             return False
         try:
-            return ordered.index(new_status) >= ordered.index(self.status)
+            # return ordered.index(new_status) >= ordered.index(self.status)
+            current_index = ordered.index(current_status)
+            new_index = ordered.index(new_status)
+            
+            return new_index == current_index + 1
         except ValueError:
             return False
 

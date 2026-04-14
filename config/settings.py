@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+from django.contrib.messages import constants as messages
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / '.env')
@@ -88,3 +89,7 @@ DEFAULT_CURRENCY = os.getenv("DEFAULT_CURRENCY", "TTD")
 CURRENCY_SYMBOL = os.getenv("CURRENCY_SYMBOL", "TT$")
 
 APP_NAME = os.getenv("APP_NAME", "Telecom Customer Portal")
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}
